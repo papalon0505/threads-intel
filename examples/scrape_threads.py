@@ -2,7 +2,7 @@
 
 from threads_intel import scrape_threads
 
-result = scrape_threads("https://www.threads.net/@zuck", delay=False)
+result = scrape_threads("https://www.threads.net/@zuck")
 
 print(f"Profile: {result['profile_summary']}")
 print(f"Posts found: {result['posts_found']}\n")

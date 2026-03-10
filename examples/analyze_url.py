@@ -4,7 +4,7 @@ import os
 from threads_intel import scrape, analyze
 
 # Scrape
-result = scrape("https://old.reddit.com/r/LocalLLaMA", delay=False)
+result = scrape("https://old.reddit.com/r/LocalLLaMA")
 content = result.get("text") or str(result.get("data", ""))
 
 # Analyze

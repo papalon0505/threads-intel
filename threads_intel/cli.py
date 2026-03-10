@@ -37,7 +37,7 @@ def main():
     sp_analyze.add_argument("--timeout", type=int, default=30, help="Scrape timeout")
     sp_analyze.add_argument("--no-delay", action="store_true", help="Skip random delay")
     sp_analyze.add_argument("--prompt", help="Custom analysis prompt")
-    sp_analyze.add_argument("--api-key", help="LLM API key (or set MINIMAX_API_KEY env)")
+    sp_analyze.add_argument("--api-key", help="LLM API key (prefer MINIMAX_API_KEY env var for security)")
     sp_analyze.add_argument("--api-url", default="https://api.minimax.io/v1/chat/completions", help="LLM API endpoint")
     sp_analyze.add_argument("--model", default="MiniMax-M2.5", help="LLM model name")
     sp_analyze.add_argument("--json", action="store_true", help="JSON output")

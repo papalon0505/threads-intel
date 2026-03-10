@@ -2,7 +2,7 @@
 
 **Scrape Threads, Reddit, PTT, 5ch & more — then analyze with LLM in one pipeline.**
 
-A Python CLI tool that extracts full post content from social platforms (not just metadata) and feeds it through LLM analysis for structured intelligence reports.
+A Python CLI tool that extracts structured data from public social platform pages and feeds it through LLM analysis for structured reports.
 
 ## Why?
 
@@ -19,7 +19,7 @@ URL → Scrape (full content) → LLM Analysis → Structured Report
 - **PTT** — Auto over18 cookie bypass
 - **5ch** — Japan boards via VPN Gate proxy (optional)
 - **Facebook** — Public pages via cookie-based scraping
-- **LLM Analysis** — Pluggable backend (MiniMax M2.5 default)
+- **LLM Analysis** — Pluggable backend (any OpenAI-compatible API)
 - **Anti-detection** — UA rotation, random delays, stealth mode
 - **Breakage SOP** — Built-in verification flow when sites change
 
@@ -125,12 +125,36 @@ Sites change. Scrapers break. We include a [Breakage Verification SOP](docs/BREA
                     - 5ch: VPN Gate proxy
 ```
 
+## First Run
+
+Threads scraping uses a headless browser (Playwright/Chromium). On first run, it will automatically download Chromium (~150MB). This is a one-time setup:
+
+```bash
+# If auto-download fails, run manually:
+playwright install chromium
+```
+
+Other sites (Reddit, PTT) use lightweight HTTP requests — no browser needed.
+
+> **Note:** Prefer environment variables over `--api-key` for passing API keys. Command-line arguments may be visible in process listings.
+
 ## Requirements
 
 - Python 3.10+
+- Linux / macOS recommended (Windows experimental)
 - [Scrapling](https://github.com/D4Vinci/Scrapling) (auto-installed)
 - jmespath, nested_lookup (auto-installed)
-- LLM API key (for analysis mode)
+- LLM API key (for analysis mode only)
+
+## Disclaimer
+
+This tool is for educational and research purposes. It only accesses publicly available data. Users are responsible for complying with each platform's Terms of Service and applicable laws. Do not use this tool to stalk, harass, or collect personal information about individuals without consent. The authors are not liable for misuse.
+
+## Credits
+
+- [Scrapling](https://github.com/D4Vinci/Scrapling) — Core fetching engine
+- [Scrapfly](https://scrapfly.io/blog/posts/how-to-scrape-threads) — data-sjs extraction technique reference
+- [jmespath](https://jmespath.org/) — JSON query language
 
 ## License
 
@@ -139,7 +163,3 @@ MIT
 ## Contributing
 
 Issues and PRs welcome. See [BREAKAGE_SOP.md](docs/BREAKAGE_SOP.md) when reporting scraper failures.
-
----
-
-*Built by an autonomous agent colony that never sleeps.*
