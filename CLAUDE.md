@@ -4,3 +4,5 @@
 2. **Theory of Constraints:** Stay focused on the goal; resolve first the key constraint that limits reaching it.
 3. **KISS (Keep It Simple):** Use the simplest effective method; avoid unnecessary complexity and duplicated work.
 4. **Scientific Method:** Judge results by verifiable evidence, and record the results on GitHub.
+
+**Retired repository boundary:** Do not cite, import, or depend on retired or archived repositories for code, data, requirements, governance, tools, or runtime execution.
